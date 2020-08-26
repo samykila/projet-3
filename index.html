@@ -29,31 +29,47 @@
 
 <!--fichier html-->
 <div id="macarte"></div>
-<!-- création du formulaire de réservation -->
-<form>
-    <h2>Description de la station</h2>
-    <label for="nom">Station :</label>
-    <input type="text" id="station" required/><br/>
-    <label for="nom">Adresse :</label>
-    <input type="text" id="address" required/><br/>
-    <label for="nom"> Disponible :</label>
-    <input type="text" id="disponibility" required/><br/>
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" required/><br/>
-    <label for="nom"> Prenom:</label>
-    <input type="text" id="prénom" required/><br/>
-    <label for="nom"> Réserver:</label>
-    <input type="submit" value="Réserver" id="reserver"/>
-    <div  id="signature">
-        <div id="description-canvas">
-            <canvas id="canvas" width="20" height="20">
-                Navigateur est incompatible!
-            </canvas>
+    <!--Informations station-->
+
+    <aside id="infoStations" class="block">
+        <h2 class="titleInfoStation">Informations de la station</h2>
+        <ul id="listInfo">
+            <li><span class ="info">Adresse : </span> <span id="adresseStation" class="contenuInfo"> <!-- Adresse insérée en Javascript --> </span></li>
+            <li><span class ="info">Etat : </span> <span id="etatStation" class="contenuInfo"> <!-- État inséré en Javascript --> </span></li>
+            <li><span class ="info">Vélos disponibles : </span> <span id="veloDispo" class="contenuInfo"> <!-- Nombre inséré en Javascript --> </span></li>
+            <li><span class ="info">Points d'attache disponibles : </span> <span id="attacheDispo" class="contenuInfo"> <!-- Nombre inséré en Javascript --> </span></li>
+        </ul>
+        <button type="button" id="butReservation" class="button hid">Réserver</button>
+    </aside>
+
+    <!--formulaire de réservation (nom, prénom et signature + bouton réserver)-->
+
+    <form id="form" class="hid block">
+        <p>Merci de renseigner les informations demandées : </p>
+        <label class="inputText"> Votre nom : </label>
+        <input type="text" name="inputLastName" id="inputLastName" class="inputResa" required>
+        <label class="inputText"> Votre prénom : </label>
+        <input type="text" name="inputFirstName" id="inputFirstName" class="inputResa" required>
+        <p>Dessinez votre signature : </p>
+        <canvas id="canvas">
+            Veuillez mettre votre navigateur à jour afin de finaliser votre réservation.
+        </canvas>
+        <div>
+            <button type="button" id="clearCanvas" class="button butName">Effacer la signature</button>
+            <button type="button" id="confirmResa" class="button butName">Confirmer la réservation</button>
         </div>
-        <button  id ="btn-reservation">Confirmer la réservation</button>
-        <button  class="reset" >Reset signature</button>
+    </form>
+<!--Etat de la réservation-->
+<aside id="infoReservation">
+    <p id="noRes">Aucune réservation effectuée pour le moment.</p>
+    <div id="resConf" class="hid">
+        <p>Reservation confirmée au nom de <span id="nameConfirm"></span> <span id="fNameConfirm"></span> à l'adresse suivante : </p>
+        <p id="stationConfirm"></p>
+        <p>Il vous reste <span id="minTimer"></span> minute(s) et <span id="secTimer"></span> seconde(s) pour le récupérer !</p>
     </div>
-</form>
+    <p id="resStop" class="hid">Le temps est écoulé et votre réservation a été annulée. N'hésitez pas à réutiliser nos vélos pour vos déplacements !</p>
+</aside>
+
 
 
 <!--fichier script-->
@@ -62,7 +78,6 @@
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
 <script  src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
-
 <script src="js/ajax.js" ></script>
 <script src="js/Carte.js"></script>
 <script src="js/Canvas.js"></script>
