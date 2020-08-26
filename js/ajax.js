@@ -1,17 +1,25 @@
 
-
-
 //strict mode
 "use strict"
+// on recupère les données
+function ajaxGet(url, callback) {
+    let request = new XMLHttpRequest();
+    request.open("GET", url);
 
-// on recupère les données AJAX grace a un Callback Get
-var request = new XMLHttpRequest();
-request.onreadystatechange = function() {
-    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        var response = JSON.parse(this.responseText)
-    }
-    console.log(response);
-};
-        
+    request.addEventListener("load", function () {
+        if (request.status >= 200 && request.status < 400) { // traitement de la requete réusssi
+            callback(request.responseText);
+        }
+        else {
+            // Affichage des informations sur l'échec du traitement de la requête
+            console.error(request.status + " " + request.statusText);
+        }
+    });
 
-      
+    request.addEventListener("error", function () {
+        // La requête n'a pas réussi à atteindre le serveur
+        console.error("Erreur réseau");
+    });
+
+    request.send(null);
+}
