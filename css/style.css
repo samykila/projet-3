@@ -37,7 +37,9 @@ body,html{
 	color: blue;
 	font-size:20px;	
 }
-
+#main{
+	display: flex;
+}
 #logo{
 	height: 60px;	
 }
@@ -50,35 +52,20 @@ main{
 	display: flex;
 }
 #macarte{
-    height: 800px;
-    width: 75%;
-    
+	display: flex;
+	height: 500px;
+	width: 90%;
+	margin-left: 0;
+	border: 1px solid black;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	z-index: 1;
   }
 /** mise en page du formulaire**/
-#formulaire{
+#formulaire {
     background-color:rgba(224, 210, 210, 0.5);
     width: 25%;
     border: solid green 2px;
-}
-form{
-  height: 80%;
-}
-#Station, #Adress, #Disponibility, #nom, #prénom, #reserver  {
-
-	background-color:gainsboro;
-	width: 90%;
-	padding-top: 9px;
-	padding-bottom: 9px;
-	padding-left: 5%;
-	padding-right: 5%;
-	margin-bottom: 15px;
-	margin-right: auto;
-	margin-left: auto;
-	border-radius: 5px;
-	border-style: none;
-	font-family: 'Roboto-Medium';
-	font-size: 20px;
-  
 }
 #sinature{
 	display: none;
@@ -113,4 +100,86 @@ form{
 #boutoncanvasconfirmer {
   font-size: 20px;
 
+}
+.block {
+	display: flex;
+	border: 1px solid black;
+	margin: 10px;
+	margin-top: 20px;
+	height: 459px;
+	line-height: 30px;
+	width: 450px;
+	padding: 10px;
+	background-color: white;
+}
+.titleInfoStation {
+	text-align: center;
+}
+#listInfo {
+	list-style-type: none;
+	padding: 0;
+}
+
+.info {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.button {
+	margin:auto;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.butName {
+	margin-top: 20px;
+}
+
+canvas {
+	border: 2px solid black;
+	background-color: cornsilk;
+	margin: auto;
+	margin-top: 300px;
+	width: 300px;
+
+}
+
+form div {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#infoReservation {
+	border: 2px solid black;
+	border-radius: 20px;
+	margin: auto;
+	margin-bottom: 10px;
+	width: 80%;
+	height: auto;
+	text-align: center;
+	line-height: 20px;
+}
+
+
+#infoReservation span {
+	font-weight: bold;
+}
+
+#stationConfirm {
+	display: block;
+	font-weight: bold;
+	margin: auto;
+	width: 40%;
+}
+
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
 }
