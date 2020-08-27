@@ -30,7 +30,7 @@
 <!--fichier html-->
 <div id="macarte"></div>
     <!--Informations station-->
-
+    <section id="main">
     <aside id="infoStations" class="block">
         <h2 class="titleInfoStation">Informations de la station</h2>
         <ul id="listInfo">
@@ -42,7 +42,7 @@
         <button type="button" id="butReservation" class="button hid">Réserver</button>
     </aside>
 
-    <!--formulaire de réservation (nom, prénom et signature + bouton réserver)-->
+    <!--formulaire de réservation -->
 
     <form id="form" class="hid block">
         <p>Merci de renseigner les informations demandées : </p>
@@ -59,8 +59,9 @@
             <button type="button" id="confirmResa" class="button butName">Confirmer la réservation</button>
         </div>
     </form>
+    </section>
 <!--Etat de la réservation-->
-<aside id="infoReservation">
+<div id="infoReservation">
     <p id="noRes">Aucune réservation effectuée pour le moment.</p>
     <div id="resConf" class="hid">
         <p>Reservation confirmée au nom de <span id="nameConfirm"></span> <span id="fNameConfirm"></span> à l'adresse suivante : </p>
@@ -68,11 +69,11 @@
         <p>Il vous reste <span id="minTimer"></span> minute(s) et <span id="secTimer"></span> seconde(s) pour le récupérer !</p>
     </div>
     <p id="resStop" class="hid">Le temps est écoulé et votre réservation a été annulée. N'hésitez pas à réutiliser nos vélos pour vos déplacements !</p>
-</aside>
+</div>
 
 
 
-<!--fichier script-->
+<!--fichier JS-->
 
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
